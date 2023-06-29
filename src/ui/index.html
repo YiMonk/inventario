@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario</title>
+  <link rel="stylesheet" href="../Styles/bootstrap.min.css" />
+  <link rel="stylesheet" href="../Styles/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+</head>
+
+<body>
+  <main>
+    <div class="header mb-2">
+      <button id="morstrarFiltro" class="btnBuscar" onclick="editProduct('${t.id}')">
+        <img src="../Iconos/search.svg" />
+        BUSCAR
+      </button>
+
+      <button id="morstrarForm" class="btnAgregar">AGREGAR PRODUCTO</button>
+    </div>
+
+    <!-- formulario -->
+    <div class="card">
+      <div class="my-auto">
+        <form id="productForm" style="display: none" class="none col p-4 my-auto">
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Marca</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="marca" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Modelo</label>
+            <div class="col-sm-10">
+              <input type="text" id="modelo" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Serial Fabricante</label>
+            <div class="col-sm-10">
+              <input type="text" id="serialFabricante" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Activo fijo</label>
+            <div class="col-sm-10">
+              <input type="text" id="activoFijo" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Proveedor</label>
+            <div class="col-sm-10">
+              <input type="text" id="proveedor" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Fecha de Compra</label>
+            <div class="col-sm-10">
+              <input type="date" id="fechaCompra" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Estatus</label>
+            <div class="col-sm-10">
+              <input type="text" id="estatus" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Motivo del Estatus</label>
+            <div class="col-sm-10">
+              <input type="text" id="motivo" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Origen del Dispositivo</label>
+            <div class="col-sm-10">
+              <input type="text" id="origen" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">envio o desincorporacion
+            </label>
+            <div class="col-sm-10">
+              <input type="date" id="envio" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nro. Ref</label>
+            <div class="col-sm-10">
+              <input type="text" id="referencia" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Ubicacion Fisica</label>
+            <div class="col-sm-10">
+              <input type="text" id="ubicacionFisica" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Observacion</label>
+            <div class="col-sm-10">
+              <input type="text" id="observacion" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Fecha de grafico</label>
+            <div class="col-sm-10">
+              <input type="text" id="fechaGrafico" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Concatenar Motivo y Fecha</label>
+            <div class="col-sm-10">
+              <input type="text" id="concatenarMF" class="form-control" autofocus />
+            </div>
+          </div>
+
+          <div class="mb-4 row">
+            <label class="col-sm-2 col-form-label">Cantidad</label>
+            <div class="col-sm-10">
+              <input type="number" id="cantidad" class="form-control text-center" />
+            </div>
+          </div>
+
+          <button type="submit" class="btnGuardar">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- filtro -->
+    <div class="py-4">
+      <form id="filtroForm" style="display: none" class="">
+        <select class="form-control mb-3">
+          <option selected>Mostrar todo</option>
+          <option value="id">id</option>
+          <option value="marca">marca</option>
+          <option value="modelo">modelo</option>
+          <option value="serialFabricante">serialFabricante</option>
+          <option value="activoFijo">activoFijo</option>
+          <option value="proveedor">proveedor</option>
+          <option value="fechaCompra">fechaCompra</option>
+          <option value="estatus">estatus</option>
+          <option value="motivo">motivo</option>
+          <option value="origen">origen</option>
+          <option value="envio">envio</option>
+          <option value="referencia">referencia</option>
+          <option value="ubicacionFisica">ubicacionFisica</option>
+          <option value="observacion">observacion</option>
+          <option value="fechaGrafico">fechaGrafico</option>
+          <option value="concatenarMF">concatenarMF</option>
+          <option value="cantidad">cantidad</option>
+        </select>
+
+
+        <input class="form-control mb-3" type="text" id="filtro" autofocus placeholder="Buscar..." />
+
+        <button type="submit" class="btnGuardar">Buscar</button>
+      </form>
+    </div>
+
+    <div class="tabla">
+      <div class="card mt-4">
+        <div class="table-responsive" style="width: 100%">
+
+          <table class="table table-hover" id="tabla">
+            <thead>
+              <tr>
+                <th scope="col" class="text-nowrap px-5">Marca</th>
+                <th scope="col" class="text-nowrap px-4">Modelo</th>
+                <th scope="col" class="text-nowrap px-5">Serial del Fabricante</th>
+                <th scope="col" class="text-nowrap px-5">Activo Fijo</th>
+                <th scope="col" class="text-nowrap px-5">Proveedor</th>
+                <th scope="col" class="text-nowrap px-5">Fecha de Compra</th>
+                <th scope="col" class="text-nowrap px-3">Estatus</th>
+                <th scope="col" class="text-nowrap px-5">Motivo</th>
+                <th scope="col" class="text-nowrap px-5">Origen</th>
+                <th scope="col" class="text-nowrap px-5">Envio</th>
+                <th scope="col" class="text-nowrap px-5">Ref</th>
+                <th scope="col" class="text-nowrap px-5">Ubicacion Fisica</th>
+                <th scope="col" class="text-nowrap px-5">Observacion</th>
+                <th scope="col" class="text-nowrap px-5">Fecha de Grafico</th>
+                <th scope="col" class="text-nowrap px-5">Concatenar M F</th>
+                <th scope="col" class="text-nowrap px-5">Cantidad</th>
+                <th scope="col" class="text-nowrap px-5">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="products"></tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+
+</body>
+
+</html>

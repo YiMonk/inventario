@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #22272ef0;
+}
+
+
+.btnAgregar{
+    color: rgb(0, 0, 0);
+    border-radius: 11px;
+    border: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 160%;
+    width: 100%;
+background-color: rgb(255, 255, 255);
+}
+.btnAgregar:hover, .btnGuardar:hover{
+  font-size: 170%;
+  font-weight: bold;
+  }
+
+main{
+  padding: 1rem;
+}
+
+
+.form-control:hover{
+font-size: large;
+font-weight: bold;
+}
+
+.titulo{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.cen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+.aggProducto{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+label{
+  background-color: rgba(212, 211, 211, 0.315);
+  border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.btnGuardar{
+  color: rgb(255, 255, 255);
+  border-radius: 11px;
+  border: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 160%;
+  width: 100%;
+  background-color: #22272ef0;
+}
+
+.header{
+  display: flex;
+}
+
+.btnBuscar{
+  color: rgb(0, 0, 0);
+  border-radius: 11px;
+  border: none;
+  margin-right: 10px;
+background-color: rgb(255, 255, 255);
+}
